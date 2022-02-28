@@ -16,7 +16,39 @@
   </head>
   <body>
     <header></header>
-    <main></main>
+    <main>
+      <!-- search area  -->
+      <section class="container mx-auto w-50 mt-5">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            id="phone-input"
+            class="form-control"
+            placeholder="Enter Phone Name"
+            aria-label="Enter Phone Name"
+            aria-describedby="button-addon2"
+          />
+          <button
+            onclick="loadPhones()"
+            class="btn btn-outline-secondary"
+            type="button"
+            id="search-button"
+          >
+            Search
+          </button>
+        </div>
+      </section>
+      <!-- search area end -->
+
+      <!-- search result  -->
+      <div class="container">
+        <div
+          id="search-result"
+          class="row row-cols-lg-3 row-cols-1 g-2 g-lg-3"
+        ></div>
+      </div>
+      <!-- search result  end -->
+    </main>
     <footer></footer>
     <!-- bootstrap script  -->
     <script
