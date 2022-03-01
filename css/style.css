@@ -1,9 +1,14 @@
+/* utilites  */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 body {
   font-family: "Poppins", sans-serif;
   background-color: #e5e5e5;
 }
+/* utilites  */
+
+/* display related design  */
 
 #error {
   display: none;
@@ -19,3 +24,5 @@ body {
 #spinner {
   display: none;
 }
+
+/* display related design  */
