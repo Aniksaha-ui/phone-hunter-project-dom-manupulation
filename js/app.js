@@ -1,3 +1,9 @@
+//spinner
+const spinner = (showStatus) => {
+  // console.log(showStatus);
+  document.getElementById("spinner").style.display = showStatus;
+};
+
 //Display an error
 const displayError = (displayStatus) => {
   document.getElementById("error").style.display = displayStatus;
@@ -11,8 +17,8 @@ const showTitle = (id, displayStatus) => {
 //load phones
 const loadPhones = () => {
   const searchField = document.getElementById("phone-input");
-  const searchValue = searchField.value;
-  //   console.log(inputValue);
+  const searchValue = searchField.value.toLowerCase();
+  console.log(searchValue);
   searchField.value = "";
 
   const url = ` https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
@@ -20,6 +26,7 @@ const loadPhones = () => {
     .then((res) => res.json())
     .then((data) => displayPhone(data.data))
     .catch((error) => console.log(error));
+  spinner("block");
 };
 
 //display phones
@@ -32,23 +39,32 @@ const displayPhone = (phones) => {
     //get search-result field and clear previous data
     const searchResultField = document.getElementById("search-result");
     searchResultField.textContent = "";
+    //display error message
     displayError("block");
+    //display error message
+
+    //hide titles and spinner off
     showTitle("search-result-title", "none");
-  }
-  // console.log(phones);
-  else {
+    showTitle("selected-phone-title", "none");
+    spinner("none");
+    //hide titles and spinner off
+  } else {
+    //hide previous error message and show and hide titles
     displayError("none");
     showTitle("search-result-title", "block");
     showTitle("selected-phone-title", "none");
+    //hide previous error message and show and hide titles
+
     //clear previous selected phone details area
     const phoneDetails = document.getElementById("phone-details");
     phoneDetails.textContent = "";
-    //clear previous selected phone details area
+    //clear previous selected phone details area end
     //get search-result field and clear previous data
     const searchResultField = document.getElementById("search-result");
     searchResultField.textContent = "";
+    //get search-result field and clear previous data end
 
-    //get search-result field and clear previous data
+    // load data into UI
     phones?.slice(0, 15).forEach((phone) => {
       const div = document.createElement("div");
       div.classList.add("col");
@@ -75,6 +91,10 @@ const displayPhone = (phones) => {
 
       searchResultField.appendChild(div);
     });
+    // load data into UI
+    //spinner off
+    spinner("none");
+    //spinner off end
   }
 };
 
