@@ -1,6 +1,5 @@
 //spinner
 const spinner = (showStatus) => {
-  // console.log(showStatus);
   document.getElementById("spinner").style.display = showStatus;
 };
 
@@ -18,7 +17,7 @@ const showTitle = (id, displayStatus) => {
 const loadPhones = () => {
   const searchField = document.getElementById("phone-input");
   const searchValue = searchField.value.toLowerCase();
-  // console.log(searchValue);
+
   searchField.value = "";
 
   const url = ` https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
@@ -26,7 +25,9 @@ const loadPhones = () => {
     .then((res) => res.json())
     .then((data) => displayPhone(data.data))
     .catch((error) => console.log(error));
+  //spinner show
   spinner("block");
+  //spinner show end
 };
 
 //display phones
