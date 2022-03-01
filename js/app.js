@@ -86,15 +86,15 @@ const displayPhoneDetails = (phone) => {
       <li class="list-group-item text-center">sensors:${
         phone.mainFeatures.sensors
       }</li>
-      <li class="list-group-item text-center">others=>${
+      <li class="list-group-item text-center">${
         phone.others
-          ? `WLAN: ${phone.others.WLAN} 
+          ? `others=> WLAN: ${phone.others.WLAN} 
           Bluetooth:${phone.others.Bluetooth},
           GPS:${phone.others.GPS},
           NFC:${phone.others.NFC},
           Radio:${phone.others.Radio},
           USB:${phone.others.USB} `
-          : "Not Found"
+          : "others: Not Found"
       } </li>
 
     </ul>
