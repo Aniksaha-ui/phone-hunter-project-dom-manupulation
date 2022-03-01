@@ -1,3 +1,10 @@
 #error {
   display: none;
 }
+#selected-phone-title {
+  display: none;
+}
+
+#search-result-title {
+  display: none;
+}

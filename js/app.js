@@ -3,6 +3,11 @@ const displayError = (displayStatus) => {
   document.getElementById("error").style.display = displayStatus;
 };
 
+//display selected phone title
+const showTitle = (id, displayStatus) => {
+  document.getElementById(id).style.display = displayStatus;
+};
+
 //load phones
 const loadPhones = () => {
   const searchField = document.getElementById("phone-input");
@@ -20,13 +25,30 @@ const loadPhones = () => {
 //display phones
 const displayPhone = (phones) => {
   if (phones.length == 0) {
+    //clear previous selected phone details area
+    const phoneDetails = document.getElementById("phone-details");
+    phoneDetails.textContent = "";
+    //clear previous selected phone details area
+    //get search-result field and clear previous data
+    const searchResultField = document.getElementById("search-result");
+    searchResultField.textContent = "";
     displayError("block");
+    showTitle("search-result-title", "none");
   }
   // console.log(phones);
   else {
     displayError("none");
+    showTitle("search-result-title", "block");
+    showTitle("selected-phone-title", "none");
+    //clear previous selected phone details area
+    const phoneDetails = document.getElementById("phone-details");
+    phoneDetails.textContent = "";
+    //clear previous selected phone details area
+    //get search-result field and clear previous data
     const searchResultField = document.getElementById("search-result");
     searchResultField.textContent = "";
+
+    //get search-result field and clear previous data
     phones?.slice(0, 15).forEach((phone) => {
       const div = document.createElement("div");
       div.classList.add("col");
@@ -67,6 +89,7 @@ const phoneDetailsBySlug = (slug) => {
 
 //selected phone details show
 const displayPhoneDetails = (phone) => {
+  showTitle("selected-phone-title", "block");
   const phoneDetails = document.getElementById("phone-details");
   phoneDetails.textContent = "";
   const div = document.createElement("div");
