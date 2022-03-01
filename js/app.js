@@ -18,7 +18,7 @@ const showTitle = (id, displayStatus) => {
 const loadPhones = () => {
   const searchField = document.getElementById("phone-input");
   const searchValue = searchField.value.toLowerCase();
-  console.log(searchValue);
+  // console.log(searchValue);
   searchField.value = "";
 
   const url = ` https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
