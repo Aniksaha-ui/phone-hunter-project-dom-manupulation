@@ -21,7 +21,7 @@ const displayPhone = (phones) => {
   else {
     const searchResultField = document.getElementById("search-result");
     searchResultField.textContent = "";
-    phones?.slice(0, 20).forEach((phone) => {
+    phones?.slice(0, 15).forEach((phone) => {
       const div = document.createElement("div");
       div.classList.add("col");
       div.innerHTML = `
@@ -73,13 +73,29 @@ const displayPhoneDetails = (phone) => {
       <h5 class="card-title text-center">${phone.name}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item text-center">Relase Date:${phone.releaseDate}</li>
+      <li class="list-group-item text-center">Relase Date:${
+        phone.releaseDate ? phone.releaseDate : "Not Found"
+      }</li>
       <li class="list-group-item text-center">Brand:${phone.brand}</li>
-      <li class="list-group-item text-center">Main Features: ${phone.mainFeatures.storage},${phone.mainFeatures.displaySize},${phone.mainFeatures.chipSet},${phone.mainFeatures.memory}</li>
+      <li class="list-group-item text-center">Main Features: ${
+        phone.mainFeatures.storage
+      },${phone.mainFeatures.displaySize},${phone.mainFeatures.chipSet},${
+    phone.mainFeatures.memory
+  }</li>
      
-      <li class="list-group-item text-center">sensors:${phone?.mainFeatures.sensors}</li>
-      
-
+      <li class="list-group-item text-center">sensors:${
+        phone.mainFeatures.sensors
+      }</li>
+      <li class="list-group-item text-center">others=>${
+        phone.others
+          ? `WLAN: ${phone.others.WLAN} 
+          Bluetooth:${phone.others.Bluetooth},
+          GPS:${phone.others.GPS},
+          NFC:${phone.others.NFC},
+          Radio:${phone.others.Radio},
+          USB:${phone.others.USB} `
+          : "Not Found"
+      } </li>
 
     </ul>
   `;
