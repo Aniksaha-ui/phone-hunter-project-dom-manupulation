@@ -36,9 +36,12 @@ const displayPhone = (phones) => {
     const phoneDetails = document.getElementById("phone-details");
     phoneDetails.textContent = "";
     //clear previous selected phone details area
+
     //get search-result field and clear previous data
     const searchResultField = document.getElementById("search-result");
     searchResultField.textContent = "";
+    //get search-result field and clear previous data end
+
     //display error message
     displayError("block");
     //display error message
@@ -69,9 +72,9 @@ const displayPhone = (phones) => {
       const div = document.createElement("div");
       div.classList.add("col");
       div.innerHTML = `
-      <div class="card p-1" >
+      <div class="card border border-3 bg-white" >
       <div class="d-flex align-items-center justify-content-center">
-          <img src="${phone.image}" class="card-img-top w-75" alt="..." />
+          <img src="${phone.image}" class="card-img-top w-50" alt="..." />
       </div>
     
       <div class="card-body">
@@ -79,11 +82,12 @@ const displayPhone = (phones) => {
       
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-center">phone Name:${phone.phone_name}</li>
-        <li class="list-group-item text-center">Brand:${phone.brand}</li>
+        <li class="list-group-item text-center">phone Name : ${phone.phone_name}</li>
+        <li class="list-group-item text-center">Brand : ${phone.brand}</li>
         <li class="list-group-item text-center">
-           <button onclick="phoneDetailsBySlug('${phone.slug}')" class="btn btn-success">Details</button>
+           <button onclick="phoneDetailsBySlug('${phone.slug}')" class="btn btn-success w-75 rounded-3">Details</button>
         </li>
+        <li class="list-group-item text-center"></li>
        
       </ul>
     </div>
@@ -114,9 +118,11 @@ const displayPhoneDetails = (phone) => {
   phoneDetails.textContent = "";
   const div = document.createElement("div");
   div.classList.add("card");
+  div.classList.add("p-4");
+
   div.innerHTML = `
     <div class="d-flex align-items-center justify-content-center">
-        <img src="${phone.image}" class="card-img-top w-50" alt="..." />
+        <img src="${phone.image}" class="card-img-top w-25" alt="..." />
     </div>
     <div class="card-body">
       <h5 class="card-title text-center">${phone.name}</h5>
