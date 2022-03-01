@@ -1,3 +1,8 @@
+//Display an error
+const displayError = (displayStatus) => {
+  document.getElementById("error").style.display = displayStatus;
+};
+
 //load phones
 const loadPhones = () => {
   const searchField = document.getElementById("phone-input");
@@ -15,10 +20,11 @@ const loadPhones = () => {
 //display phones
 const displayPhone = (phones) => {
   if (phones.length == 0) {
-    alert("No data Found");
+    displayError("block");
   }
   // console.log(phones);
   else {
+    displayError("none");
     const searchResultField = document.getElementById("search-result");
     searchResultField.textContent = "";
     phones?.slice(0, 15).forEach((phone) => {
