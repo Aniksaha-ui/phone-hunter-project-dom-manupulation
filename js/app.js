@@ -133,18 +133,19 @@ const displayPhoneDetails = (phone) => {
         phone.releaseDate ? phone.releaseDate : "Not Found"
       }</li>
       <li class="list-group-item text-center">Brand:${phone.brand}</li>
-      <li class="list-group-item text-center">Main Features: ${
-        phone.mainFeatures.storage
-      },${phone.mainFeatures.displaySize},${phone.mainFeatures.chipSet},${
-    phone.mainFeatures.memory
-  }</li>
-     
+      <li class="list-group-item text-center"><h4>Main Features</h4>
+      <p>storage: ${phone.mainFeatures.storage} </p>
+      <p>Display: ${phone.mainFeatures.displaySize} </p> 
+      <p>ChipSet : ${phone.mainFeatures.chipSet}</p>
+      Memory: ${phone.mainFeatures.memory}
+      </li>
       <li class="list-group-item text-center">sensors:${
         phone.mainFeatures.sensors
       }</li>
       <li class="list-group-item text-center">${
         phone.others
-          ? `others=> WLAN: ${phone.others.WLAN} 
+          ? `<h4>Others</h4> 
+          WLAN: ${phone.others.WLAN} 
           Bluetooth:${phone.others.Bluetooth},
           GPS:${phone.others.GPS},
           NFC:${phone.others.NFC},
