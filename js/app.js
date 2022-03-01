@@ -73,7 +73,7 @@ const displayPhone = (phones) => {
       const div = document.createElement("div");
       div.classList.add("col");
       div.innerHTML = `
-      <div class="card border border-3 bg-white" >
+      <div class="card py-2 border border-3 bg-white" >
       <div class="d-flex align-items-center justify-content-center">
           <img src="${phone.image}" class="card-img-top w-50" alt="..." />
       </div>
@@ -119,7 +119,7 @@ const displayPhoneDetails = (phone) => {
   phoneDetails.textContent = "";
   const div = document.createElement("div");
   div.classList.add("card");
-  div.classList.add("p-4");
+  div.classList.add("py-4");
 
   div.innerHTML = `
     <div class="d-flex align-items-center justify-content-center">
